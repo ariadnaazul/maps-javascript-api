@@ -1,0 +1,90 @@
+{
+    "type": "FeatureCollection",
+    "name": "coordenadas",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+        }
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "point",
+                "coordinates": [
+                    -58.37834342963325,
+                    -34.57510847076868
+                ]
+            },
+            "properties": {
+                "Titulo": "Nuevo Puerto y Puerto Nuevo",
+                "id": "-",
+                "Cod_imed": "-",
+                "Provincia": "Buenos Aires",
+                "Direccion": "",
+                "email": "-",
+                "telefono": "",
+                "Localidad": "Capital Federal",
+                "Razon": "-",
+                "Direccion_Num": "",
+                "cp": "-",
+                "location_latitud": "-34.57510847076868",
+                "location_longitud": "-58.37834342963325",
+                "icon": "../images/clavo.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "point",
+                "coordinates": [
+                    -58.47834342963325,
+                    -34.57510847076868
+                ]
+            },
+            "properties": {
+                "Titulo": "Piedra del Aguila",
+                "id": "-",
+                "Cod_imed": "-",
+                "Provincia": "Neuquén",
+                "Direccion": "",
+                "email": "-",
+                "telefono": "",
+                "Localidad": "Piedra del Águila",
+                "Razon": "-",
+                "Direccion_Num": "",
+                "cp": "-",
+                "location_latitud": "-34.57510847076868",
+                "location_longitud": "-58.37834342963325",
+                "icon": "../images/orange-dot.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "point",
+                "coordinates": [
+                    -58.57834342963325,
+                    -34.57510847076868
+                ]
+            },
+            "properties": {
+                "Titulo": "Mendoza",
+                "id": "-",
+                "Cod_imed": "-",
+                "Provincia": "Mendoza",
+                "Direccion": "",
+                "email": "-",
+                "telefono": "",
+                "Localidad": "Luján de Cuyo",
+                "Razon": "-",
+                "Direccion_Num": "",
+                "cp": "-",
+                "location_latitud": "-34.57510847076868",
+                "location_longitud": "-58.37834342963325",
+                "icon": "../images/ubi-cp-icono.png"
+            }
+        }
+    ]
+}

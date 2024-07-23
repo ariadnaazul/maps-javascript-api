@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+</html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Maps Api</title>
+    <link rel="stylesheet" href="./mapa.css">
+    
+    <!--Api-->
+    <script
+      type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?sensor=false"
+    ></script>
+
+    <!--Lógica del MarkerCluster-->
+    <script
+      type="text/javascript"
+      src="../src/markerclusterer.js"
+    ></script>
+    <!--Logica del mapa-->
+    <script src="mapa.js" defer></script>
+    
+  </head>
+  <body>
+    <!--El elemento #map es recuperado por la lógica para renderizar el mapa -->
+    <div id="map-container">
+      <div id="map"></div>
+    </div>
+    <div class="indice">
+      <h3>NOTAS</h3>
+      <p>Se utiliza la api de Maps Javascript para crear marcadores personalizados.</p>
+      <p>Además se utiliza la librería Marker Cluster permite reemplazar numerosos marcadores por un cluster que indica la cantidad de marcadores en la zona y permite establecer un icono personalizado.</p>
+      <p>En este proyecto se pueden encontrar los fragmentos de código para:</p>
+      <ul>
+        <li>Inicar marcadores</li>
+        <li>Personalizar marcadores</li>
+        <li>Crear marker clusters</li>
+        <li>Personalizar marker cluster</li>
+        <li>Centrar mapa</li>
+        <li>Desplegar cartel on click</li>
+      </ul>
+      <br>
+      <h3>DOCUMENTACIÓN</h3>
+      <ul>
+        <li>
+          <a href="https://googlemaps.github.io/js-markerclusterer/modules.html">Marker Cluster Documentation</a>
+        </li>
+        <li><a href="https://www.npmjs.com/package/@google/markerclusterer">Marker Cluster v3 Documentatio</a></li>
+        <li><a href="https://developers.google.com/maps/documentation/javascript/overview?hl=es-419">Google Maps javascript API</a></li>
+      </ul>
+      <br>
+      <h3>PENDIENTE</h3>
+      <p>Queda pendiente explorar las opciones para convertir elementos de la app a html y poder incluir animaciones en los marcadores y el cluster.</p>
+    </div>
+  </body>
+</html>
