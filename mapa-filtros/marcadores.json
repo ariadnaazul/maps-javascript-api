@@ -1,0 +1,116 @@
+{
+    "type": "FeatureCollection",
+    "name": "coordenadas",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+        }
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "point",
+                "coordinates": [
+                    -58.414201,
+                    -34.597691
+                ]
+            },
+            "properties": {
+                "Farmacia": "FARMACITY 132 BILLINGHURST",
+                "id": "99031086004",
+                "Cod_imed": "99031086004",
+                "Provincia": "CAPITAL FEDERAL",
+                "Direccion": "AVENIDA CORDOBA 3381",
+                "email": "padrones@farmacity.com.ar",
+                "telefono": "",
+                "Localidad": "RECOLETA",
+                "Razon": "FARMCITY SA",
+                "Direccion_Num": "",
+                "cp": "C1187AAH",
+                "es_MPN": true,
+                "location_latitud": "-58.414201",
+                "location_longitud": "-34.597691"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "point",
+                "coordinates": [
+                    -58.4013978,
+                    -34.5835218
+                ]
+            },
+            "properties": {
+                "Farmacia": "FARMACITY 38 BUSTAMANTE",
+                "id": "99022269007",
+                "Cod_imed": "99022269007",
+                "Provincia": "CAPITAL FEDERAL",
+                "Direccion": "AVENIDA GRAL LAS HERAS 2845",
+                "email": "padrones@farmacity.com.ar",
+                "telefono": "",
+                "Localidad": "PALERMO",
+                "Razon": "FARMCITY SA",
+                "Direccion_Num": "",
+                "cp": "C1425ASF",
+                "es_MPN": true,
+                "location_latitud": "-58.4013978",
+                "location_longitud": "-34.5835218"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "point",
+                "coordinates": [
+                    -58.4393299,
+                    -34.6146992
+                ]
+            },
+            "properties": {
+                "Farmacia": "MARESA",
+                "id": "99012279008",
+                "Cod_imed": "99012279008",
+                "Provincia": "Capital Federal",
+                "Direccion": "AVENIDA AVELLANEDA 590",
+                "email": "farmaciamaresa@gmail.com",
+                "telefono": "",
+                "Localidad": "FLORES",
+                "Razon": "MARESA S R L",
+                "Direccion_Num": "",
+                "cp": "C1405CNS",
+                "es_MPN": true,
+                "location_latitud": "-58.4393299",
+                "location_longitud": "-34.6146992"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "point",
+                "coordinates": [
+                    -64.290451,
+                    -35.9141476
+                ]
+            },
+            "properties": {
+                "Farmacia": "AVENIDA",
+                "id": "99016211007",
+                "Cod_imed": "99016211007",
+                "Provincia": "La Pampa",
+                "Direccion": "INDEPENDENCIA 1475",
+                "email": "colfarlp@cpenet.com.ar",
+                "telefono": "",
+                "Localidad": "Eduardo Castex",
+                "Razon": "CERDA LUIS SANTIAGO Y GUALCO YANINA SH",
+                "Direccion_Num": "",
+                "cp": null,
+                "es_MPN": false,
+                "location_latitud": "-64.290451",
+                "location_longitud": "-35.9141476"
+            }
+        }
+    ]
+}

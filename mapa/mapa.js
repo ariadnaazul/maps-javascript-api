@@ -64,7 +64,7 @@ async function initialize() {
     var markerCluster = new MarkerClusterer(map, markers, {
       // styles: [{
       //   textColor: 'white',
-      //   url: '../images/m2.png', //Se puede cargar cualquie imagen en formato png
+      //   url: '../images/m2.png', //Se puede cargar cualquier imagen en formato png
       //   height: 50,
       //   width: 50,
       //   textSize: 20,

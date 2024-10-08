@@ -33,5 +33,8 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://wombat-dressing-room.appspot.com"
+  },
+  "dependencies": {
+    "@google/markerclusterer": "file:"
   }
 }

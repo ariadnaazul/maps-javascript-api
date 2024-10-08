@@ -1,36 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maps Api</title>
 </head>
 <style>
-    a{
+    body {
+        color: white;
+        font-family: sans-serif;
+    }
+
+    a {
         text-decoration: none;
         font-family: sans-serif;
         text-align: center;
-        color: white;
     }
-    .content{
+
+    .content {
         display: flex;
         width: 100%;
         align-items: center;
         height: 100vh;
         justify-content: center;
+
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 40px auto;
+    }
+
+    button {
+        padding: 5px 20px;
+        color: black;
+        cursor: pointer;
+    }
+
+    a {
+        color: inherit
+    }
+
+    .doc-card {
+        border: solid 2px black;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        margin-bottom: 20px;
+        margin-top: 0px;
+    }
+
+    .row {
+        display: flex;
+    }
+
+    .left-side {
+        width: 50%;
+        padding-right: 20px;
+    }
+
+    @media(max-width:1024px) {
+        .left-side {
+            width: 100%;
+        }
     }
 </style>
+
 <body style="background-color: rgb(34, 34, 36);">
-    <div class="content">
-        <div style="text-align: center;">
-            <p>
-                <a href="/mapa/mapa.html">Ir al Mapa Javascript Api Example</a>
-            </p>
-            
-            <p>
-                <a target="_blank" href="https://github.com/ariadnaazul/maps-javascript-api">Ir al repositorio de GitHub del proyecto</a>
-            </p>
-        </div>
+    <div class="container">
+        <h1>Google Maps API</h1>
+
+        <section>
+            <div class="row">
+                <div class="left-side">
+                    <h2>Documentación externa.</h2>
+                    <div class="doc-card">
+                        <p><b>APIs de Google Maps Platform</b></p>
+                        <a href="https://developers.google.com/maps/apis-by-platform?hl=es-419">
+                            <button>Ver</button></a>
+                    </div>
+                    <div class="doc-card">
+                        <p><b>Maps JavaScript API</b></p>
+                        <a href="https://developers.google.com/maps/documentation/javascript/overview?hl=es-419">
+                            <button>Ver</button></a>
+                    </div>
+                    <div class="doc-card">
+                        <p><b>Creación de API Key</b></p>
+                        <a href="https://developers.google.com/maps/documentation/javascript/get-api-key?hl=es">
+                            <button>Ver</button></a>
+                    </div>
+                    <div class="doc-card">
+                        <p><b>Referencias de estilos para el Mapa.</b></p>
+                        <a href="https://developers.google.com/maps/documentation/javascript/style-reference?hl=es-419">
+                            <button>Ver</button></a>
+                    </div>
+                    <div class="doc-card">
+                        <p><b>Eventos en el Mapa.</b></p>
+                        <a href="https://developers.google.com/maps/documentation/javascript/events?hl=es-419">
+                            <button>Ver</button></a>
+                    </div>
+
+                    <h2>Recursos.</h2>
+                    <div class="doc-card">
+                        <p><b>Enlace de API for development purposes only (no requiere API Key):</b></p>
+                        <span>https://maps.googleapis.com/maps/api/js?sensor=false</span>
+                    </div>
+                    <div class="doc-card">
+                        <p><b>Repositorio GitHub de este proyecto:</b></p>
+                        <a href="https://github.com/ariadnaazul/maps-javascript-api">
+                            <button>Ir a GitHub</button></a>
+                    </div>
+                    
+
+                </div>
+                <!--Right Side-->
+                <div class="left-side">
+                    <h2>Proyectos Maps JavaScript API</h2>
+                    
+                    <div class="doc-card">
+                        <p><b>Basic</b></p>
+                        <p>Implementa:</p>
+                        <ul>
+                            <li>Data JSON</li>
+                            <li>Marcadores</li>
+                            <li>Cluster Personalizado</li>
+                            <li>Iconos personalizados</li>
+                        </ul>
+                        <p></p>
+                        <a href="/mapa/mapa.html">
+                            <button>Ver</button></a>
+                    </div>
+                    <div class="doc-card">
+                        <p><b>Buscador</b></p>
+                        <p>Implementa:</p>
+                        <ul>
+                            <li>Buscador y filtros</li>
+                            <li>Checkbox</li>
+                            <li>Carga asincrona</li>
+                            <li>Tabla de locaciones</li>
+                            <li>Actualización de marcadores</li>
+                        </ul>
+                        <p></p>
+                        <a href="/mapa-filtros/mapa.html">
+                            <button>Ver</button></a>
+                    </div>
+                   
+
+
+                </div>
+            </div>
+        </section>
     </div>
+    
 </body>
+
 </html>

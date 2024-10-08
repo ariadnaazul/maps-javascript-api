@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Maps Api</title>
+  <link rel="stylesheet" href="./mapa.css">
+
+  <!--Api-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1kQoInu_58ivAdV4VJgfPjWmI0QcDTVc&callback=initMap" async defer></script>
+  
+
+  <!--Lógica del MarkerCluster-->
+  <script type="text/javascript" src="../src/markerclusterer.js"></script>
+  <!--Logica del mapa-->
+  <script src="mapa.js" defer></script>
+
+  <style>
+    .custom-datalist {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.custom-datalist div {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.custom-datalist div:hover {
+  background-color: #ddd;
+}
+.d-none{
+  display: none;
+}
+
+  </style>
+</head>
+
+<body>
+  <section id="mapa" class="container mb-md-4 mb-0">
+    <h2 class="visually-hidden">Mapa con buscador:</h2>
+    <div class="row">
+      <div class="col-md-12">
+        <form id="filtrar-mapa" class="d-flex gap-md-2 justify-content-center flex-column">
+          <p class="mt-3 mb-md-4 mb-4 text-darker-gray fs-14 px-md-1">Escriba o seleccione una provincia y/o una
+            localidad</p>
+          <div class="row">
+            <div class="col-md-4 col-sm-12 mb-3 mb-md-0">
+              <label for="provincias" class="visually-hidden">Seleccione una Provincia</label>
+              <select id="provincias" name="provincias" class="form-select w-100">
+                <option disabled selected>Seleccioná una provincia</option>
+              </select>
+            </div>
+
+            <div id="or-1" class="col-md-4 col-sm-12 mb-md-0">
+              <label for="localidades" class="visually-hidden">Seleccione una localidad</label>
+              <input list="ciudades" name="localidades" id="localidades" class="form-control w-100"
+                placeholder="Seleccioná o escribí una localidad o barrio" autocomplete="off">
+              <datalist id="ciudades">
+                <option disabled selected>Buscar por localidad</option>
+              </datalist>
+
+            </div>
+
+            <div id="or-2" class="col-md-4 col-sm-12 mt-3 mt-md-0 d-none d-md-block">
+              <button type="submit" data-tracking-id="buscar-farmacia" class="btn btn-purple w-100">Buscar</button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div id="or-3" class="col-md-12 col-sm-12 d-flex gap-2 align-items-center mb-3 mt-3 mb-md-0">
+              <input class="form-check-input" type="checkbox" name="test" id="checkbox">
+              <label for="checkbox">Filtrar marcadores y reiniciar el mapa</label>
+            </div>
+          </div>
+
+          <!-- Nuevo botón de búsqueda para móviles -->
+          <div class="row d-md-none">
+            <div class="col-12">
+              <button type="submit" data-tracking-id="buscar-farmacia-mobile"
+                class="btn btn-purple w-100">Buscar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div id="map" class='container' style="height: 50vh"></div>
+  </main>
+
+</body>
+
+</html>
