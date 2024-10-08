@@ -2,7 +2,7 @@
 let map;
 let pos;
 let zoomLevel = window.innerWidth > 768 ? 11.5 : 9;
-let farmacias = [];
+let locaciones = [];
 let esClickOnMarker = false;
 
 let latMap = -34.62806412044143;
@@ -33,9 +33,9 @@ checkbox.addEventListener('click', function (e) {
   const url = "./marcadores.json";
   const response = await fetch(url);
   const result = await response.json();
-  farmacias.push(result.features);
+  locaciones.push(result.features);
   setProvincias();
-  updateListFarmaciasVisibles();
+  updateListLocacionesVisibles();
 })();
 
 
@@ -70,9 +70,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 function setProvincias() {
   let provincias = [];
 
-  // Extraer las provincias de las farmacias
-  farmacias[0].forEach(farmacia => {
-    provincias.push(farmacia.properties.Provincia.toUpperCase());
+  // Extraer las provincias de las locaciones
+  locaciones[0].forEach(locacion => {
+    provincias.push(locacion.properties.Provincia.toUpperCase());
   });
 
 
@@ -92,9 +92,9 @@ function setProvincias() {
 }
 
 
-//Vacia los recuadros que se agregaron al html con la información de las farmacias encontradas 
+//Vacia los recuadros que se agregaron al html con la información de las locaciones encontradas 
 function limpiarRecuadros() {
-  const contenedor = document.getElementById('farmacias-container');
+  const contenedor = document.getElementById('locaciones-container');
   if (contenedor) {
     contenedor.innerHTML = ''; // Vacía todo el contenido del contenedor
   }
@@ -119,7 +119,7 @@ function handleLocalidadChange(e) {
 
 // Función para manejar la lógica de la provincia seleccionada
 async function provinciaSelected(nombreProvincia) {
-  const puntos = farmacias[0].filter(f => f.properties.Provincia.toUpperCase() === nombreProvincia);
+  const puntos = locaciones[0].filter(f => f.properties.Provincia.toUpperCase() === nombreProvincia);
   console.log("Provincia seleccionada:", nombreProvincia);
 
   if (puntos.length > 0) {
@@ -164,7 +164,7 @@ inputLocalidad.addEventListener('click', function () {
 
 
 async function localidadSelected(ciudad) {
-  const localidades = farmacias[0].filter(f => f.properties.Localidad?.toUpperCase() === ciudad);
+  const localidades = locaciones[0].filter(f => f.properties.Localidad?.toUpperCase() === ciudad);
   console.log("Localidad seleccionada:", ciudad);
 
   if (localidades.length > 0) {
@@ -198,16 +198,16 @@ function centerMap(lat, lng, zoom) {
 async function handleSubmit(e) {
   e.preventDefault();
 
-  if (document.querySelector('#farmacias-container')) {
-    document.querySelector('#farmacias-container').remove();
+  if (document.querySelector('#locaciones-container')) {
+    document.querySelector('#locaciones-container').remove();
   }
 
   const provincia = document.querySelector('#provincias').value;
   const localidades = document.querySelector('#localidades').value;
 
-  const farmacias = await buscarFarmacias(provincia, localidades);
+  const locaciones = await buscarLocaciones(provincia, localidades);
 
-  document.querySelector('#mapa').appendChild(farmacias);
+  document.querySelector('#mapa').appendChild(locaciones);
 }
 
 
@@ -431,13 +431,13 @@ async function initMap() {
         map: map
       });
       marker.id = feature.getProperty('id');
-      var content = '<div class="content-farmacia ext-white"><div><img class="img-checkbox" src=' + logoUrl + '></div><div><h6 class="text-white">Farmacia ' +
-        feature.getProperty('Farmacia') + '</h6></div><div><p class="text-white fw-normal"> <span class="text-upeercase text-white fw-normal fs-14">' +
+      var content = '<div class="content-locacion ext-white"><div><img class="img-checkbox" src=' + logoUrl + '></div><div><h6 class="text-white">Locacion ' +
+        feature.getProperty('Locacion') + '</h6></div><div><p class="text-white fw-normal"> <span class="text-upeercase text-white fw-normal fs-14">' +
         feature.getProperty('Direccion') + ' ' +
         feature.getProperty('Direccion_Num') /*+ ' ' + feature.getProperty('location_longitud') + ' ' + feature.getProperty('location_latitud')*/ +
         '</span>, ' + feature.getProperty('Localidad') + ', ' + feature.getProperty('Provincia') +
         ' </p></div><a href="https://www.google.com/maps/search/?api=1&query=FARMACIA%20' +
-        feature.getProperty('Farmacia') + '%20' + feature.getProperty('Direccion') + '%20' +
+        feature.getProperty('Locacion') + '%20' + feature.getProperty('Direccion') + '%20' +
         feature.getProperty('Direccion_Num') + '" target="_blank">Ver en Google Maps</a>';
 
       /*Modifica el info window de maps*/
@@ -534,8 +534,8 @@ async function initMap() {
 
 
 
-/*Imprime en html el resultado de buscar farmacias */
-function noFarmacias() {
+/*Imprime en html el resultado de buscar locaciones */
+function noLocaciones() {
   const h4 = document.createElement('h4');
   h4.className = 'h3 text-center text-md-start text-purple fw-normal';
   h4.textContent = 'No se encontraron locaciones';
@@ -543,20 +543,20 @@ function noFarmacias() {
   $('#listaVisibles').append(h4);
 }
 
-async function buscarFarmacias(provincia = '', localidades = '') {
-  let farmacias;
+async function buscarLocaciones(provincia = '', localidades = '') {
+  let locaciones;
   const url = './marcadores.json';
   const response = await fetch(url);
   const result = await response.json();
   if (localidades) {
     console.log('localidades');
     provincia = provincia === 'ciudad autónoma de buenos aires' ? 'Capital Federal' : provincia;
-    farmacias = result.features.filter(farmacia => {
-      const provinciaValida = farmacia.properties.Provincia.toUpperCase() === provincia.toUpperCase();
-      const localidadValida = farmacia.properties.Localidad ?
-        farmacia.properties.Localidad.toUpperCase().includes(localidades.toUpperCase()) || localidades.toUpperCase().includes(farmacia.properties.Localidad.toUpperCase()) :
+    locaciones = result.features.filter(locacion => {
+      const provinciaValida = locacion.properties.Provincia.toUpperCase() === provincia.toUpperCase();
+      const localidadValida = locacion.properties.Localidad ?
+        locacion.properties.Localidad.toUpperCase().includes(localidades.toUpperCase()) || localidades.toUpperCase().includes(locacion.properties.Localidad.toUpperCase()) :
         false;
-      const esMPNValida = !isChecked || farmacia.properties.es_MPN === true;
+      const esMPNValida = !isChecked || locacion.properties.es_MPN === true;
 
       return provinciaValida && localidadValida && esMPNValida;
 
@@ -566,20 +566,20 @@ async function buscarFarmacias(provincia = '', localidades = '') {
     console.log('provincia')
     provincia = provincia === 'ciudad autónoma de buenos aires' ? 'Capital Federal' : provincia;
     console.log(provincia);
-    farmacias = result.features.filter(farmacia => farmacia.properties.Provincia.toUpperCase() === provincia.toUpperCase());
-    const esMPNValida = !isChecked || farmacia.properties.es_MPN === true;
+    locaciones = result.features.filter(locacion => locacion.properties.Provincia.toUpperCase() === provincia.toUpperCase());
+    const esMPNValida = !isChecked || locacion.properties.es_MPN === true;
     return provinciaValida && esMPNValida;
   } else {
-    farmacias = [];
+    locaciones = [];
   }
 
   console.log('FARMACIAS DEVUETAS POST FILTER')
-  console.log(farmacias);
+  console.log(locaciones);
 
 
 
-  if (document.querySelector('#farmacias')) {
-    document.querySelector('#farmacias').remove();
+  if (document.querySelector('#locaciones')) {
+    document.querySelector('#locaciones').remove();
   }
 
   const contenedor = document.createElement('div');
@@ -587,13 +587,13 @@ async function buscarFarmacias(provincia = '', localidades = '') {
   const thead = document.createElement('thead');
   const tbody = document.createElement('tbody');
 
-  contenedor.setAttribute('id', 'farmacias-container')
-  table.setAttribute('id', 'farmacias');
+  contenedor.setAttribute('id', 'locaciones-container')
+  table.setAttribute('id', 'locaciones');
   table.classList.add('table', 'table-striped', 'm-0');
 
   thead.innerHTML = `
       <tr>
-          <th class="ps-md-3 align-middle text-purple">Farmacia</th>
+          <th class="ps-md-3 align-middle text-purple">Locacion</th>
           <th class="text-center align-middle text-purple">Localidad</th>
           <th class="text-center align-middle text-purple d-none">Teléfono</th>
           <th class="text-center align-middle text-purple d-none">Email</th>
@@ -604,13 +604,13 @@ async function buscarFarmacias(provincia = '', localidades = '') {
 
   table.appendChild(thead);
 
-  if (farmacias.length > 0) {
-    farmacias.forEach(farma => {
+  if (locaciones.length > 0) {
+    locaciones.forEach(farma => {
       tbody.appendChild(generarRecuadro(farma));
     });
   } else {
     tbody.innerHTML = `<tr>
-          <td colspan="100%" class="fs-4 text-purple text-center py-2">No se han encontrado farmacias en esta zona</td>
+          <td colspan="100%" class="fs-4 text-purple text-center py-2">No se han encontrado locaciones en esta zona</td>
       </tr>`;
   }
 
@@ -623,7 +623,7 @@ function generarRecuadro(farma) {
   console.log("resultados");
   console.log(farma);
   const { properties: {
-    Farmacia,
+    Locacion,
     Direccion,
     id,
     location_latitud,
@@ -639,7 +639,7 @@ function generarRecuadro(farma) {
   const tdTelefono = document.createElement('td');
   const tdEmail = document.createElement('td');
   const tdDireccion = document.createElement('td');
-  const tdFarmacia = document.createElement('td');
+  const tdLocacion = document.createElement('td');
   const tdBtn = document.createElement('td');
   const tdLocalidad = document.createElement('td');
   const btn = document.createElement('a');
@@ -647,7 +647,7 @@ function generarRecuadro(farma) {
   tdTelefono.textContent = telefono !== "" ? telefono : '-';
   tdEmail.textContent = email ?? '-';
   tdDireccion.textContent = Direccion ?? '-';
-  tdFarmacia.textContent = Farmacia;
+  tdLocacion.textContent = Locacion;
   tdLocalidad.textContent = Localidad ? Localidad.toUpperCase() : '';
 
 
@@ -657,7 +657,7 @@ function generarRecuadro(farma) {
 
 
 
-  tdFarmacia.classList.add('text-purple', 'h6', 'fw-normal', 'align-middle', 'ps-md-3', 'text-md-start', 'text-center');
+  tdLocacion.classList.add('text-purple', 'h6', 'fw-normal', 'align-middle', 'ps-md-3', 'text-md-start', 'text-center');
   tdLocalidad.classList.add('text-purple', 'fw-normal', 'align-middle', 'ps-md-3', 'text-center');
   tdTelefono.classList.add('text-purple', 'align-middle', 'fw-normal', 'text-center', 'd-none');
   tdEmail.classList.add('text-purple', 'align-middle', 'fw-normal', 'text-center', 'd-none');
@@ -666,7 +666,7 @@ function generarRecuadro(farma) {
   btn.classList.add('btn', 'btn-purple', 'w-100');
 
   tdBtn.appendChild(btn);
-  newRecuadro.appendChild(tdFarmacia);
+  newRecuadro.appendChild(tdLocacion);
   newRecuadro.appendChild(tdLocalidad);
   newRecuadro.appendChild(tdTelefono);
   newRecuadro.appendChild(tdEmail);

@@ -18,7 +18,7 @@
                 ]
             },
             "properties": {
-                "Farmacia": "FARMACITY 132 BILLINGHURST",
+                "Locacion": "FARMACITY 132 BILLINGHURST",
                 "id": "99031086004",
                 "Cod_imed": "99031086004",
                 "Provincia": "CAPITAL FEDERAL",
@@ -44,7 +44,7 @@
                 ]
             },
             "properties": {
-                "Farmacia": "FARMACITY 38 BUSTAMANTE",
+                "Locacion": "FARMACITY 38 BUSTAMANTE",
                 "id": "99022269007",
                 "Cod_imed": "99022269007",
                 "Provincia": "CAPITAL FEDERAL",
@@ -70,7 +70,7 @@
                 ]
             },
             "properties": {
-                "Farmacia": "MARESA",
+                "Locacion": "MARESA",
                 "id": "99012279008",
                 "Cod_imed": "99012279008",
                 "Provincia": "Capital Federal",
@@ -96,7 +96,7 @@
                 ]
             },
             "properties": {
-                "Farmacia": "AVENIDA",
+                "Locacion": "AVENIDA",
                 "id": "99016211007",
                 "Cod_imed": "99016211007",
                 "Provincia": "La Pampa",
